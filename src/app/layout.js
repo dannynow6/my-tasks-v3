@@ -1,6 +1,7 @@
 import "./globals.css";
 import { poppins } from "@/components/ui/fonts";
 import { AuthProvider } from "@/context/AuthContext";
+import { FirestoreProvider } from "@/context/FirestoreContext";
 import Footer from "@/components/ui/Footer";
 import NavBar from "@/components/ui/NavBar";
 
@@ -37,9 +38,11 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${poppins.className} antialiased`}>
         <AuthProvider>
-          <NavBar />
-          {children}
-          <Footer />
+          <FirestoreProvider>
+            <NavBar />
+            {children}
+            <Footer />
+          </FirestoreProvider>
         </AuthProvider>
       </body>
     </html>
