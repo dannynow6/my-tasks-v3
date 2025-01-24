@@ -41,8 +41,7 @@
 
 ## Purpose
 
-- My Tasks was built to provide new developers with a hands-on example of building a modern web app while offering users a functional, streamlined task management experience.
-- My Tasks was built as a code-along project for the [CodeNoobs](https://codenoobs.io) Web Dev Incubator.
+- My Tasks was built to provide new developers in the [CodeNoobs](https://codenoobs.io) Web Dev Incubator with a hands-on example of building a modern web app while offering users a functional, streamlined task management experience.
 - It demonstrates how to build and deploy a modern web app using Firebase for backend services while empowering users to manage their tasks efficiently.
 
 ## Deployment
