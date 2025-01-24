@@ -6,7 +6,6 @@
 ## Table of Contents
 
 - [Features](#features)
-- [Demo](#demo)
 - [User Authentication](#user-authentication)
 - [Backend Services](#backend-services)
 - [Purpose](#purpose)
@@ -22,10 +21,6 @@
 - **Delete Task**: Remove completed or unnecessary tasks with a dedicated delete button.
 - **Update Task**: Edit task details effortlessly to keep your list accurate and relevant.
 - **Mark as Done**: Strike through completed tasks to maintain a clear overview of your progress.
-
-## Demo
-
-![App Screenshot](link-to-screenshot)
 
 ## User Authentication
 
