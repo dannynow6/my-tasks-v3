@@ -68,8 +68,24 @@
 4. Set up Firebase:
    - Create a Firebase project in the [Firebase Console](https://firebase.google.com)
    - Add your Firebase configuration details to a .env file in the root of the project:
+   ```.env
+    NEXT_PUBLIC_FIREBASE_API_KEY=your_api_key
+    NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your_auth_domain
+    NEXT_PUBLIC_FIREBASE_PROJECT_ID=your_project_id
+   ```
+5. Run the app:
+   ```bash
+   npm run dev
+   ```
+6. Open your browser and navigate to http://localhost:3000
+
+## Technologies Used
+
+- **Frontend:** Next.js/React, Tailwind CSS, Daisy UI, Framer-Motion
+- **Backend:** Firebase (Firestore, Auth, Hosting)
+- **Hosting:** Firebase Hosting
 
 ## Author
 
 - Built by [Dan G.](https://dgdesignanddev.com)
-- 2025
+- 2024 - Present
