@@ -7,6 +7,8 @@ import NavBar from "@/components/ui/NavBar";
 
 export const metadata = {
   metadataBase: new URL("http://localhost:3000"), // change to production url
+  applicationName: "My Tasks",
+  referrer: "origin-when-cross-origin",
   alternates: {
     canonical: "/",
     languages: {
@@ -19,6 +21,9 @@ export const metadata = {
     url: "http://localhost:3000", // update to production url
     siteName: "My Tasks",
     images: "/opengraph-image.png",
+    locale: "en_US",
+    type: "website",
+    authors: ["Dan G."],
   },
   twitter: {
     card: "summary_large_image",
@@ -29,8 +34,9 @@ export const metadata = {
   },
   title: "My Tasks",
   description: "A simple way to manage your tasks without the headache",
-  keywords: "todo, tasks, tasks manager",
-  author: "Dan Garro, 2024",
+  keywords: ["tasks", "to do", "to do lists", "tasks manager", "lists"],
+  authors: [{ name: "Dan Garro", url: "https://dgdesignanddev.com" }],
+  creator: "Dan Garro",
 };
 
 export default function RootLayout({ children }) {
