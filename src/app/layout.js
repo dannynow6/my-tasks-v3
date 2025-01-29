@@ -2,6 +2,7 @@ import "./globals.css";
 import { poppins } from "@/components/ui/fonts";
 import { AuthProvider } from "@/context/AuthContext";
 import { FirestoreProvider } from "@/context/FirestoreContext";
+import { TaskProvider } from "@/context/TaskContext";
 import Footer from "@/components/ui/Footer";
 import NavBar from "@/components/ui/NavBar";
 
@@ -46,7 +47,7 @@ export default function RootLayout({ children }) {
         <AuthProvider>
           <FirestoreProvider>
             <NavBar />
-            {children}
+            <TaskProvider>{children}</TaskProvider>
             <Footer />
           </FirestoreProvider>
         </AuthProvider>
