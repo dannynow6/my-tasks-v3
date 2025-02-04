@@ -70,8 +70,12 @@ const EditTaskModal = ({
             placeholder={taskText}
             className="input input-bordered input-secondary w-full max-w-xs"
           />
-          <button type="submit" className="btn btn-wide btn-success">
-            <MdEdit className="text-lg" /> Save
+          <button
+            type="submit"
+            className="btn btn-wide btn-success"
+            aria-label="Update task"
+          >
+            <MdEdit className="text-lg" alt="Update task" /> Save
           </button>
         </form>
         <div className="modal-action">
@@ -80,8 +84,9 @@ const EditTaskModal = ({
               type="button"
               onClick={onCloseTaskModal}
               className="btn btn-ghost"
+              aria-label="Cancel"
             >
-              <MdOutlineCancel className="text-lg" /> Cancel
+              <MdOutlineCancel className="text-lg" alt="Cancel" /> Cancel
             </button>
           </form>
         </div>

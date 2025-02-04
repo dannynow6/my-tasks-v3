@@ -12,8 +12,9 @@ const SignOut = () => {
       whileTap={{ scale: 0.9 }}
       className="btn"
       onClick={signOutUser}
+      aria-label="Sign out"
     >
-      <MdClose /> Sign out
+      <MdClose alt="Sign out" /> Sign out
     </motion.button>
   );
 };

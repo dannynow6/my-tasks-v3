@@ -5,8 +5,12 @@ const SignInGoogle = () => {
   const { signInWithGoogle } = useAuth();
 
   return (
-    <button className="btn" onClick={signInWithGoogle}>
-      <FaGoogle /> Sign in
+    <button
+      className="btn"
+      onClick={signInWithGoogle}
+      aria-label="Sign in with Google account"
+    >
+      <FaGoogle alt="Sign in with Google account" /> Sign in
     </button>
   );
 };

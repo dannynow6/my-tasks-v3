@@ -46,14 +46,18 @@ const AddTaskModal = () => {
             placeholder="enter new task"
             className="input input-bordered input-secondary w-full max-w-xs"
           />
-          <button type="submit" className="btn btn-wide btn-success">
-            <MdAddTask className="text-lg" /> Add
+          <button
+            type="submit"
+            className="btn btn-wide btn-success"
+            aria-label="Add task"
+          >
+            <MdAddTask className="text-lg" alt="Add task" /> Add
           </button>
         </form>
         <div className="modal-action">
           <form method="dialog">
-            <button className="btn btn-ghost">
-              <MdOutlineCancel className="text-lg" /> Cancel
+            <button className="btn btn-ghost" aria-label="Cancel">
+              <MdOutlineCancel className="text-lg" alt="Cancel" /> Cancel
             </button>
           </form>
         </div>
