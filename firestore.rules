@@ -13,22 +13,21 @@ service cloud.firestore {
       allow read: if request.auth != null && resource.data.uid == request.auth.uid;
       
       // Allow create if the user is authenticated and the data is valid
-      allow create: if request.auth != null && isValidTaskData();
-      
+      allow create: if request.auth != null && request.resource.data.uid == request.auth.uid && 
+                    request.resource.data.keys().hasAll(['task', 'isComplete', 'createdAt', 'uid']) &&
+                    request.resource.data.task is string &&
+                    request.resource.data.isComplete is bool &&
+                    request.resource.data.createdAt is timestamp;
+
       // Allow update if the user is authenticated, owns the task, and the data is valid
-      allow update: if request.auth != null && resource.data.uid == request.auth.uid && isValidTaskData();
+      allow update: if request.auth != null && resource.data.uid == request.auth.uid && 
+                    request.resource.data.keys().hasAll(['task', 'isComplete', 'createdAt', 'uid']) &&
+                    request.resource.data.task is string &&
+                    request.resource.data.isComplete is bool &&
+                    request.resource.data.createdAt is timestamp;
 
       // Allow delete if the user is authenticated and owns the task
       allow delete: if request.auth != null && resource.data.uid == request.auth.uid;
-    }
-
-    // Function to validate task data
-    function isValidTaskData() {
-      return request.resource.data.keys().hasAll(['task', 'isComplete', 'createdAt', 'uid']) &&
-             request.resource.data.task is string &&
-             request.resource.data.isComplete is bool &&
-             request.resource.data.createdAt is timestamp &&
-             request.resource.data.uid == request.auth.uid;
     }
   }
 }
