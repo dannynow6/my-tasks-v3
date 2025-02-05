@@ -3,17 +3,34 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
 
-    // This rule allows anyone with your Firestore database reference to view, edit,
-    // and delete all data in your Firestore database. It is useful for getting
-    // started, but it is configured to expire after 30 days because it
-    // leaves your app open to attackers. At that time, all client
-    // requests to your Firestore database will be denied.
-    //
-    // Make sure to write security rules for your app before that time, or else
-    // all client requests to your Firestore database will be denied until you Update
-    // your rules
-    match /{document=**} {
-      allow read, write: if request.time < timestamp.date(2025, 2, 15);
+    // Allow reading user data for authorized users
+    match /users/{userId} {
+      allow read: if request.auth != null; 
+    }
+
+    // Allow reading, creating, updating, and deleting tasks based on user ownership 
+    match /myTasks/{taskId} {
+      // Allow read if the user is authenticated and owns the task 
+      allow read: if request.auth != null && resource.data.uid == request.auth.uid; 
+
+      // Allow create if the user is authenticated and the data is valid 
+      allow create: if request.auth != null && isValidTaskData(); 
+
+      // Allow update if the user is authenticated, owns the task, and the data is valid 
+      allow update: if request.auth != null && resource.data.uid == request.auth.uid && isValidTaskData(); 
+
+      // Allow delete if the user is authenticated and owns the task 
+      allow delete: if request.auth != null && resource.data.uid == request.auth.uid; 
+    }
+
+    // Function to validate task data 
+    function isValidTaskData() {
+      return request.resource.data.keys().hasAll(['task', 'isComplete', 'createdAt', 'uid']) && 
+              request.resource.data.task is string && 
+              request.resource.data.isComplete is bool && 
+              request.resource.data.createdAt is timestamp && 
+              request.resource.data.uid == request.auth.uid 
     }
   }
 }
+
